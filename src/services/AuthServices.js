@@ -1,8 +1,9 @@
 
 const login = (username, password) => {
     window.localStorage.setItem("user", {
-        token: 'Tuan vc',
-        username: 'Tuan'
+        token: 'Tuan hihi',
+        username: 'Tuan',
+        id: 'Tuan vch'
     });
 } 
 

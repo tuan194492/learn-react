@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div>
       <h3>
-        Home page From Group 42
+        Home page of NQT
       </h3>
     </div>
   );

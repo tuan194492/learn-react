@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import authService from "../../services/AuthServices";
 import ROLE from "../../constant/ROLE";
 
+import {Container, Form, Col, Row, Button} from 'react-bootstrap';
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,30 +28,58 @@ const Login = () => {
     setRole(e.target.value);
   }
 
-  return (
-    <div>
-      <form onSubmit={handleLogin}>
-        <h3>Login</h3>
-        <input
-          type="text"
-          placeholder="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div onChange={onChangeRole}>
-          <input type="radio" value={ROLE.NGUOI_CHO_THUE} name="role"/> Người cho thuê
-          <input type="radio" value={ROLE.NGUOI_THUE} name="role"/> Người thuê
-      </div>
+  const myStyle = {
+    border: '1px solid gray',
+    borderRadius: '2%',
+    padding: '10px' 
+  }
 
-        <button type="submit">Log in</button>
-      </form>
-    </div>
+
+  return (
+    <Container style={myStyle}>
+      <Form onSubmit={handleLogin}>
+        <Row className="mb-2">
+           <h2 className="text-center">Login</h2>
+        </Row>
+        
+        <Form.Group as={Row} className="mb-3" controlId="formEmail">
+          <Col md="3" />
+          <Form.Label column lg="2">
+            Email
+          </Form.Label>
+          <Col sm="5">
+            <Form.Control type="email" placeholder="Email" value={email} onChange={(event) => {
+              const {email} = event.target;
+              setEmail(email)
+            }}/>
+          </Col>
+        </Form.Group>
+
+        <Form.Group as={Row} className="mb-3" controlId="formPassword">
+          <Col md="3" />
+          <Form.Label column lg="2">
+            Password
+          </Form.Label>
+          <Col sm="5">
+            <Form.Control type="password" placeholder="Password" value={password} onChange={(event) => {
+               const {password} = event.target;
+               setPassword(password)
+            }}/>
+          </Col>
+        </Form.Group>
+
+        
+        <Row>
+          <Col md="5" />
+          <Col md="2">
+            <Button type="submit">Login</Button>
+          </Col>
+            
+        </Row>
+        
+
+      </Form>
+    </Container>
   );
 };
 

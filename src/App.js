@@ -4,6 +4,7 @@ import authService from "./services/AuthServices";
 import Home from "./components/Home";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/SignUp";
+import NewManagerPage from "./components/nguoichothue/newmanager/NewManagerPage"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -34,10 +35,30 @@ function App() {
         </div>
 
         {currentUser ? (
-          <div className="navbar-nav ms-auto">
+          <div className="navbar-nav m-auto">
             <li className="nav-item">
-              <a href="/login" className="nav-link" onClick={logOut}>
-                Logout
+              <a href="/lougout" className="nav-link" onClick={logOut}>
+                Tìm nhà cho thuê
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="/lougout" className="nav-link" onClick={logOut}>
+                Tìm người ở ghép
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="/lougout" className="nav-link" onClick={logOut}>
+                Tin tức
+              </a>
+            </li>
+            <li className="nav-item">
+              <a href="/manage-new" className="nav-link">
+                Quản lý
+              </a>
+            </li>
+            <li className="nav-item ms-auto">
+              <a href="/lougout" className="nav-link" onClick={logOut}>
+                Đăng xuất
               </a>
             </li>
           </div>
@@ -45,13 +66,13 @@ function App() {
           <div className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link to={"/login"} className="nav-link">
-                Login
+                Đăng nhập
               </Link>
             </li>
 
             <li className="nav-item">
               <Link to={"/signup"} className="nav-link">
-                Sign up
+                Đăng ký
               </Link>
             </li>
           </div>
@@ -61,6 +82,7 @@ function App() {
       <div className="container mt-3">
         <Routes>
           <Route path="/home" element={<Home />} />
+          <Route path="/manage-new" element={ <NewManagerPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
