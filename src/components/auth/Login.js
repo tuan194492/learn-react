@@ -8,6 +8,7 @@ import {Container, Form, Col, Row, Button} from 'react-bootstrap';
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [role, setRole] = useState(ROLE.NGUOI_CHO_THUE)
 
   const navigate = useNavigate();
@@ -27,13 +28,6 @@ const Login = () => {
   const onChangeRole = (e) => {
     setRole(e.target.value);
   }
-
-  const myStyle = {
-    border: '1px solid gray',
-    borderRadius: '2%',
-    padding: '10px' 
-  }
-
 
   return (
     <Container style={myStyle}>

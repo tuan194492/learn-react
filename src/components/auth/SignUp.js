@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import authService from "../../services/AuthServices";
-import {Container, Form, Col, Row, Button} from 'react-bootstrap';
+import ROLE from "../../constant/ROLE";
+import Button from 'react-bootstrap/Button';
 
-const Login = () => {
+
+const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState(ROLE.NGUOI_CHO_THUE)
+  const [birtdDay, setBirthDay] = useState("");
+  const [name, setName] = useState("");
 
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await authService.login(email, password).then(
+      await authService.signup(e.target.value).then(
         () => {
           navigate("/home");
           window.location.reload();
@@ -25,6 +30,9 @@ const Login = () => {
       console.log(err);
     }
   };
+  const onChangeRole = (e) => {
+    setRole(e.target.value);
+  }
 
   const myStyle = {
     border: '1px solid gray',
@@ -33,68 +41,57 @@ const Login = () => {
   }
 
   return (
-    <Container style={myStyle}>
-      <Form>
-        <Row className="mb-2">
-           <h2 className="text-center">Sign up</h2>
-        </Row>
+    <div>
+      <form onSubmit={handleSignup}>
+        <h3>Sign up</h3>
+        <div className="row col-3 mb-1">
+          <input
+            type="text"
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
         
-        <Form.Group as={Row} className="mb-3" controlId="formEmail">
-          <Col md="3" />
-          <Form.Label column lg="2">
-            Email
-          </Form.Label>
-          <Col sm="5">
-            <Form.Control type="email" placeholder="Email" />
-          </Col>
-        </Form.Group>
+        <div className="row col-3 mb-1">
+        <input
+          type="password"
+          placeholder="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-        <Form.Group as={Row} className="mb-3" controlId="formPassword">
-          <Col md="3" />
-          <Form.Label column lg="2">
-            Password
-          </Form.Label>
-          <Col sm="5">
-            <Form.Control type="password" placeholder="Password" />
-          </Col>
-        </Form.Group>
+        </div>
 
-        <Form.Group as={Row} className="mb-3" controlId="formUserRole">
-          <Col md="3" />
+        <div className="row col-3 mb-1">
+        <input
+          type="text"
+          placeholder="name"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        </div>
 
-          <Col key='inline-radio'>
-            <Form.Label column md="3">
-              Role
-            </Form.Label> 
-            <Form.Check
-                inline 
-                type='radio'
-                label='Người đi thuê'
-                name='userRole'
-                id="userRole"
-              />
-
-              <Form.Check
-                inline
-                type='radio'
-                label='Người thuê'
-                name='userRole'
-                id="userRole"
-              />
-          </Col>
-        </Form.Group>
-        <Row>
-          <Col md="5" />
-          <Col md="2">
-            <Button type="submit">Sign up</Button>
-          </Col>
-            
-        </Row>
+        <div className="row col-3 mb-1">
+        <input
+          type="date"
+          placeholder="birth"
+          value={birtdDay}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        </div>
         
+        
+        <div onChange={onChangeRole} >
+          <input type="radio" value={ROLE.NGUOI_CHO_THUE} name="role"/> Người cho thuê
+          <input type="radio" value={ROLE.NGUOI_THUE} name="role"/> Người thuê
+        </div>
 
-      </Form>
-    </Container>
-  )
+        <Button variant="success">Sign up</Button>
+      </form>
+      
+    </div>
+  );
 };
 
-export default Login;
+export default Signup;

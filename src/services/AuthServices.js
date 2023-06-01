@@ -15,10 +15,15 @@ const getCurrentUser = () => {
     return window.localStorage.getItem("user");    
 };
 
+const signup = (signUpInfo) => {
+
+}
+
 const authService = {
     login,
     logout,
-    getCurrentUser
+    getCurrentUser,
+    signup
 }
 
 
