@@ -3,7 +3,7 @@ const getNewsByUserId = (userId) => {
         description: 'Hello'
     };
     const news = [];
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 0; i++) {
         news.push(newSample);
     }
     return news;

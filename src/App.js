@@ -6,6 +6,7 @@ import Login from "./components/auth/Login";
 import Signup from "./components/auth/SignUp";
 import NewManagerPage from "./components/nguoichothue/newmanager/NewManagerPage"
 import "bootstrap/dist/css/bootstrap.min.css";
+import NewDetail from "./components/nguoichothue/newmanager/NewDetail";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -83,6 +84,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/manage-new" element={ <NewManagerPage />} />
+          <Route path="/manage-new/create" element={ <NewDetail />} /> 
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>

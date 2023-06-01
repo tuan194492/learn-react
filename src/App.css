@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  margin-bottom: 100px;
+}
+
+.uploaded-images-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.uploaded-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.uploaded-image img {
+  width: 200px; /* Adjust the desired width */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+.delete-button {
+  margin-top: 5px;
+}
