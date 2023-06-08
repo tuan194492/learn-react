@@ -102,7 +102,7 @@ const NewDetail = (props) => {
 
                 <Col md="9">
                     <Form.Label>Hình ảnh</Form.Label>
-                    <ImagePreviewList imageList = {newData.imageList} parentObj = {newData} setParentObj={setNewData}/>
+                    <ImagePreviewList parentObj = {newData} setParentObj={setNewData}/>
                 </Col>
 
             </Row>

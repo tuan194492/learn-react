@@ -7,6 +7,7 @@ import Signup from "./components/auth/SignUp";
 import NewManagerPage from "./components/nguoichothue/newmanager/NewManagerPage"
 import "bootstrap/dist/css/bootstrap.min.css";
 import NewDetail from "./components/nguoichothue/newmanager/NewDetail";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);

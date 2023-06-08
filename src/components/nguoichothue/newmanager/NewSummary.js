@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import New from "../../common/new/New";
 import {Container, Form, Col, Row, Button, Table} from 'react-bootstrap';
 import { useNavigate } from "react-router-dom";
 import authService from "../../../services/AuthServices";
@@ -8,14 +7,20 @@ import newService from "../../../services/NewService";
 
 const NewSummury = (props) => {
     const navigate = useNavigate();
-    let {newList} = props;
+    let {newList, setNewList} = props;
 
     const addNew = (e) => {
         navigate("/manage-new/create");
     } 
 
+    const goToEditNew = (e) => {
+        navigate(`/manage-new/${e.target.id}`);
+    }
+
     const deleteNew = (e) => {
         newService.deleteNew(e.target.id);
+        const updatedList = newList.filter(item => item.id !== e.target.id)
+        setNewList(updatedList)
     }
 
     return ( 
@@ -55,7 +60,7 @@ const NewSummury = (props) => {
                         newList.length > 0 ? 
                         newList.map(item => {
                             return (
-                                <tr>
+                                <tr key={item.id}>
                                     <td>
                                         {item.id}
                                     </td>
@@ -78,12 +83,8 @@ const NewSummury = (props) => {
                                         {item.status}
                                     </td>
                                     <td>
-                                        <Button variant="outline-info" onClick={() => {
-                                                
-                                        }}>Edit</Button>
-                                        <Button variant="outline-danger" onClick={() => {
-
-                                        }}>Delete</Button>
+                                        <Button variant="outline-info" onClick={goToEditNew}>Edit</Button>
+                                        <Button variant="outline-danger" onClick={deleteNew}>Delete</Button>
                                     </td>
                                 </tr>
                             )

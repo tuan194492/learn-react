@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
+import NewSummary from "./common/new/NewSummary";
 
 const Home = () => {
   return (
     <div>
-      <h3>
-        Home page of NQT
-      </h3>
+      <NewSummary />
     </div>
   );
 };

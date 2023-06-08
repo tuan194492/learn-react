@@ -15,7 +15,7 @@ const NewManagerPage = () => {
             {
                 newList ? 
                 ( 
-                    <NewSummury newList={newList} />
+                    <NewSummury newList={newList} setNewList={setNewList}/>
                 )
                 :
                 (<NewDetail />)
