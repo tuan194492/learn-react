@@ -3,17 +3,20 @@ import { useState } from "react";
 import {Col, Form, Row, Button} from 'react-bootstrap';
 import '../../App.css'
 const ImagePreviewList = (props) => {
-    const [selectedImages, setSelectedImages] = useState([]);
-
+    let {parentObj, setParentObj} = props;
     const handleImageUpload = (event) => {
         const files = Array.from(event.target.files);
-        setSelectedImages([...selectedImages, ...files]);
+        let imageList = [...parentObj.imageList];
+        imageList = [...imageList, ...files];
+        setParentObj({...parentObj, imageList: imageList})
+        
       };
     
       const handleImageRemove = (index) => {
-        const updatedImages = [...selectedImages];
+        let imageList = [...parentObj.imageList];
+        const updatedImages = [...imageList];
         updatedImages.splice(index, 1);
-        setSelectedImages(updatedImages);
+        setParentObj({...parentObj, imageList: updatedImages})
       };
     return (
     <div>
@@ -27,7 +30,7 @@ const ImagePreviewList = (props) => {
       </Row>
       <Row>
         <Col className="uploaded-images-container">
-          {selectedImages.map((image, index) => (
+          {parentObj.imageList.map((image, index) => (
             <div key={index} className="uploaded-image">
                 <img src={URL.createObjectURL(image)} alt={`uploaded-${index}`} />
                 <Button variant="danger" size="sm" className="delete-button" onClick={() => handleImageRemove(index)}>Delete</Button>

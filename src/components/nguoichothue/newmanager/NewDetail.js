@@ -5,11 +5,16 @@ import { Form, Row, Col, Button} from "react-bootstrap";
 import ImagePreviewList from "../../common/ImagePreviewList";
 
 const NewDetail = (props) => {
+    
     let {readonly, id} = props;
-    let {images, setImages} = useState([]);
+    const [newData, setNewData] = useState({
+        city: 'Ha noi',
+        imageList: []
+    });
+    let [images, setImages] = useState([]);
 
     const handleSubmit = () => {
-        
+        console.log(newData)
     } 
 
     return (
@@ -97,7 +102,7 @@ const NewDetail = (props) => {
 
                 <Col md="9">
                     <Form.Label>Hình ảnh</Form.Label>
-                    <ImagePreviewList imageList = {images}/>
+                    <ImagePreviewList imageList = {newData.imageList} parentObj = {newData} setParentObj={setNewData}/>
                 </Col>
 
             </Row>
