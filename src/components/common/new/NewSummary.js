@@ -5,13 +5,15 @@ import NewByRow from "./NewByRow";
 import NewListFullSize from "./NewListFullSize";
 
 const NewSummary = (props) => {
-  
-  let {data} = props;
 
   // const [newList, setNewList] = useState(newService.getAllNews());
-  let newList = [
-    'a', 'b', 'c'
-  ]
+  const [newList, setNewList] = useState([]);
+  useEffect(() => {
+    for (let i = 0; i < 3; i ++) {
+      newList.push({id: i})
+    }
+    console.log(newList)
+  }, [])
 
   let filterButtonStyle = {
     border: 'none',

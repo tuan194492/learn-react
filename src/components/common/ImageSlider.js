@@ -17,13 +17,9 @@ const ImageSlider = ({ images }) => {
 
   return (
     <div className="slider">
-      <button className="slider__prev" onClick={prevSlide}>
-        Prev
-      </button>
+        <img width="50" height="50" src="https://img.icons8.com/ios/50/previous.png" alt="previous" onClick={prevSlide}/>
       <img className="slider__image" src={images[currentIndex]} alt="Slider" />
-      <button className="slider__next" onClick={nextSlide}>
-        Next
-      </button>
+      <img width="50" height="50" src="https://img.icons8.com/ios/50/next.png" alt="next" onClick={nextSlide}/>
     </div>
   );
 };

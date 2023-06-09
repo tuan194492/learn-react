@@ -8,6 +8,7 @@ import NewManagerPage from "./components/nguoichothue/newmanager/NewManagerPage"
 import "bootstrap/dist/css/bootstrap.min.css";
 import NewDetail from "./components/nguoichothue/newmanager/NewDetail";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import NewDetailForAll from "./components/common/new/NewDetailForAll";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -39,17 +40,17 @@ function App() {
         {currentUser ? (
           <div className="navbar-nav m-auto">
             <li className="nav-item">
-              <a href="/lougout" className="nav-link" onClick={logOut}>
+              <a href="/home" className="nav-link" >
                 Tìm nhà cho thuê
               </a>
             </li>
             <li className="nav-item">
-              <a href="/lougout" className="nav-link" onClick={logOut}>
+              <a href="/home" className="nav-link" >
                 Tìm người ở ghép
               </a>
             </li>
             <li className="nav-item">
-              <a href="/lougout" className="nav-link" onClick={logOut}>
+              <a href="/anything" className="nav-link" >
                 Tin tức
               </a>
             </li>
@@ -86,6 +87,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/manage-new" element={ <NewManagerPage />} />
           <Route path="/manage-new/create" element={ <NewDetail />} /> 
+          <Route path="/new-view/detail" element={ <NewDetailForAll />} />
+          <Route path="/anything" element={ <NewDetailForAll />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>

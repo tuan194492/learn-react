@@ -10,7 +10,7 @@ const NewListFullSize = (props) => {
         <div style={{marginTop: '10px'}}>
           {
             newList.map((item, index) => {
-              return <NewByRow key={index} new={item} />
+              return <NewByRow key={index} newData={item} />
             })
           }
         </div>

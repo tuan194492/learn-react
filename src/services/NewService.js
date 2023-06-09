@@ -17,10 +17,20 @@ const deleteNew = (newData) => {
     
 }
 
+const getRelatedNews = (currentNewId) => {
+    let newList = []
+    for (let i = 0; i < 5; i ++) {
+      newList.push({id: i})
+    
+    }
+    return newList;
+};
+
 const newService = {
     getNewsByUserId,
     addNew,
-    deleteNew
+    deleteNew,
+    getRelatedNews
 };
 
 export default newService;

@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const NewByRow = (props) => {
+const NewByRowMini = (props) => {
     let {newData} = props;
     let navigate = useNavigate();
     return (
-        <div class="card mb-3" style={{maxWidth: '60%'}}>
+        <div class="card mb-3" style={{width: '100%', height: 'auto'}}>
             <div class="row g-0">
                 <div class="col-md-4">
                 <img 
@@ -24,12 +24,9 @@ const NewByRow = (props) => {
                         }}>
                         PHÒNG TRỌ ĐỐI DIỆN KS 5 SAO TÂN SƠN NHẤT MỚI XÂY RẤT ĐẸP - GẦN CÔNG VIÊN…</h5>
                     <div>
-                        <span style={{color: "green"}}>5 triệu/tháng </span>
-                        <span style={{marginLeft: 10}}>25m²</span>
-                        <span style={{marginLeft: 10}}>Quận Phú Nhuận, Hồ Chí Minh</span>
+                        <span style={{color: "green"}}>5 triệu/tháng </span>    
                     </div>
-                    <p class="card-text">- Phòng đẹp nằm ngay trung tâm quận Phú Nhuận (xem hình thật). View trước là đối diện Khách Sạn 3* Tân Sơn Nhất, View sau là đường Nguyễn Văn Trỗi.+…</p>
-                    <p class="card-text"><small class="text-body-secondary">hieuthanh2006 (*)</small></p>
+                    <p class="card-text"><small class="text-body-secondary">Hôm nay</small></p>
                 </div>
                 </div>
             </div>
@@ -37,4 +34,4 @@ const NewByRow = (props) => {
     )
 }
 
-export default NewByRow;
+export default NewByRowMini;
